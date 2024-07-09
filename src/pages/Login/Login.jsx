@@ -47,7 +47,7 @@ const Login = () => {
                 setError(error.response.data.message);
             } else {
                 setError("An unexpected error occurred. Please try again");
-            }n
+            }
         }
     };
 
