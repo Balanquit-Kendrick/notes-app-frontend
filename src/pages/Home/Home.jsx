@@ -43,7 +43,8 @@ const Home = () => {
         setAllNotes(response.data.notes);
       }
     } catch (error) {
-      console.log("An unexpected error occurred. Please try again.")
+      console.error(error);
+      console.log("An ected error occurred. Please try again.")
     }
   };
 
@@ -105,9 +106,12 @@ const Home = () => {
         className="w-[40%] max-h-3/4 bg-white rounded-md mx-auto mt-14 p-5 overflow-scroll:hidden"
       >
         <AddEditNotes
+          type={openAddEditModal.type}
+          noteData={openAddEditModal.data}
           onClose={() => {
             setOpenAddEditModal({ isShown: false, type: "add", data:null});
           }}
+          getAllNotes={getAllNotes}
         />
       </Modal>
     </>

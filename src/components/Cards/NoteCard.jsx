@@ -3,7 +3,6 @@ import { MdCreate, MdDelete, MdOutlinePushPin } from 'react-icons/md'
 import moment from 'moment'
 
 const NoteCard = ({ title, date, content, tags, isPinned, onEdit, onDelete, onPinNote }) => {
-    console.log(tags);
     const formattedDate = moment(date, 'YYYY-MM-DD').format('Do MMM YYYY');
     return (
         <div className='border rounded p-4 bg-white hover:shadow-xl transition-all ease-in-out'>
@@ -16,7 +15,9 @@ const NoteCard = ({ title, date, content, tags, isPinned, onEdit, onDelete, onPi
             </div>
             <p className='text-xs text-slate-600 mt-2'>{content?.slice(0, 60)}</p>
             <div className='flex items-center justify-between mt-2'>
-                <div className='text-xs text-slate-500'>{tags.map((item)=> `#${item} `)}</div>
+                <div className='text-xs text-slate-500'>
+                    {Array.isArray(tags) && tags.map((item) => `#${item} `)}
+                </div>
                 <div className='flex items-center gap-2'>
                     <MdCreate 
                         className='icon-btn hover:text-green-600'
