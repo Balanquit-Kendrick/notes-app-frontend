@@ -14,7 +14,7 @@ const Toast = ({isShown, message, type, onClose}) => {
       clearTimeout(timeoutId);
     };
   }, [onClose]);
-  console.log(isShown);
+  
   return (
     <div 
       className={`absolute top-20 right-6 transition-all duration-400 ${
@@ -22,7 +22,7 @@ const Toast = ({isShown, message, type, onClose}) => {
       }`}
     >
       <div className={`min-w-52 bg-white border shadow-2xl rounded-md after:w-[5px] after:h-full ${
-        type === "delete" ? "after:bg-red-500" : "after:bg-green-500"
+        type === 'delete' ? "after:bg-red-500" : "after:bg-green-500"
         } after:absolute after:left-0 after:top-0 after:rounded-l-lg`}
       >
         <div className='flex items-center gap-3 py-2 px-4'>

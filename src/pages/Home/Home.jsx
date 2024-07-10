@@ -48,7 +48,7 @@ const Home = () => {
     });
   };
 
-  //Get User Info
+  // Get User Info
   const getUserInfo = async () => {
     try {
       const response = await axiosInstance.get("/get-user");
@@ -63,7 +63,7 @@ const Home = () => {
     }
   };
 
-  //Get All Notes
+  // Get All Notes
   const getAllNotes = async () => { 
     try {
       const response = await axiosInstance.get("/get-all-notes");
@@ -76,6 +76,26 @@ const Home = () => {
     }
   };
 
+  // Delete Note
+  const deleteNote = async (data) => {
+    const noteId = data._id; 
+    try {
+      const response = await axiosInstance.delete("/delete-note/" + noteId);
+      
+      if (response.data && !response.data.note) {
+          showToastMessage("Note Deleted Successfully", 'delete');
+          getAllNotes();
+      }
+  } catch (error) {
+      if (
+          error.response &&
+          error.response.data && 
+          error.response.data.message
+      ) {
+        console.log("An ected error occurred. Please try again.") 
+      }
+  }
+  }
   useEffect(() => {
     getAllNotes()
     getUserInfo();
@@ -98,7 +118,7 @@ const Home = () => {
               tags={item.tags}
               isPinned={item.isPinned}
               onEdit={()=>{handleEdit(item)}}
-              onDelete={()=>{}}
+              onDelete={()=>{deleteNote(item)}}
               onPinNote={()=>{}}
             />
           ))}

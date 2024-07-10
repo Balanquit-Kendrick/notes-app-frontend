@@ -45,7 +45,7 @@ const AddEditNotes = ({noteData, type, getAllNotes, onClose, showToastMessage}) 
                 tags
             });
             
-            if (response.data && response.data.note) {
+            if (response.data && !response.data.error) {
                 showToastMessage("Note Updated Successfully");
                 getAllNotes();
                 onClose();
