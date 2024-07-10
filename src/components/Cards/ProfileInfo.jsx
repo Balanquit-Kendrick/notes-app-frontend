@@ -9,13 +9,15 @@ const ProfileInfo = ({ userInfo, onLogout }) => {
               {getInitials(userInfo.fullName)}
           </div>
 
-          <div>
+          <div className=''>
               <p className='text-sm font-medium'>{userInfo.fullName}</p>
+              <div className='flex justify-between items-center'>
               <button 
-              className="text-sm text-slate-700 underline" 
-              onClick={onLogout}>
+                className="ml-auto text-sm text-slate-700 underline" 
+                onClick={onLogout}>
                 Logout
               </button>
+              </div>
           </div>
       </div>
     )
