@@ -20,9 +20,9 @@ const AddEditNotes = ({noteData, type, getAllNotes, onClose, showToastMessage}) 
             });
             
             if (response.data && response.data.note) {
-                showToastMessage("Note Added Successfully")
-                getAllNotes()
-                onClose()
+                showToastMessage("Note Added Successfully");
+                getAllNotes();
+                onClose();
             }
         } catch (error) {
             if (
@@ -46,9 +46,9 @@ const AddEditNotes = ({noteData, type, getAllNotes, onClose, showToastMessage}) 
             });
             
             if (response.data && response.data.note) {
-                showToastMessage("Note Updated Successfully")
-                getAllNotes()
-                onClose()
+                showToastMessage("Note Updated Successfully");
+                getAllNotes();
+                onClose();
             }
         } catch (error) {
             if (
