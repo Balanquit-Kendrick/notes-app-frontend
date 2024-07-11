@@ -7,11 +7,11 @@ import axiosInstance from '../../utils/axiosInstance'
 
 const Login = () => {
 
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [error, setError] = useState(null);
-    
-    const navigate = useNavigate();
+        const [email, setEmail] = useState("");
+        const [password, setPassword] = useState("");
+        const [error, setError] = useState(null);
+        
+        const navigate = useNavigate();
 
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -30,7 +30,7 @@ const Login = () => {
 
         //Login API Call
         try{
-            const response = await axiosInstance.post("/login",{
+            const response = await axiosInstance.post("/",{
                 email: email,
                 password: password
             });
